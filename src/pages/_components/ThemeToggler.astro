@@ -103,7 +103,7 @@
     // remove after next frame so transitions don't flash
     requestAnimationFrame(() => {
       requestAnimationFrame(() =>
-        themeCoverageRootEl.classList.remove(themeTransitionClass)
+        themeCoverageRootEl.classList.remove(themeTransitionClass),
       );
     });
   }
@@ -134,21 +134,24 @@
     const savedTheme = localStorage.getItem(themeCoverageDataAttribute);
     const savedThemeSource = localStorage.getItem(themeSourceDataAttribute);
 
-    if (savedThemeSource === "browser") {
-      const theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if (savedThemeSource !== "user" || !savedThemeSource) {
+      const desiredDeviceTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
         ? "dark"
         : "light";
 
       registerThemeSource("browser");
-      applyTheme[theme]();
+      applyTheme[desiredDeviceTheme]();
       return;
     }
 
-    registerThemeSource("user");
-    if (Object.keys(applyTheme).includes(savedTheme || "")) {
-      applyTheme[savedTheme as Theme]();
-    } else {
-      applyTheme[defaultTheme]();
+    if (savedThemeSource === "user") {
+      registerThemeSource("user");
+      if (Object.keys(applyTheme).includes(savedTheme || "")) {
+        applyTheme[savedTheme as Theme]();
+      } else {
+        applyTheme[defaultTheme]();
+      }
     }
   }
 
