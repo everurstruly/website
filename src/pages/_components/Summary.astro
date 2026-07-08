@@ -1,25 +1,21 @@
 ---
-import {
-  ExternalLink,
-  Github,
-  Linkedin,
-  MessageCircleMore,
-} from "lucide-astro";
+import { ExternalLink, Github, Linkedin, MessageCircleMore } from "lucide-astro";
 import { socialLinks } from "../seo";
+import { person } from "../index.astro";
 ---
 
-<section id="summary" class="pt-14 pb-10">
-  <div class="max-w-fit min-[500px]:max-w-none min-[500px]:mx-auto">
+<section id="summary" class="pt-2 lg:pt-14 pb-8">
+  <div class="max-w-fit min-[420px]:max-w-none min-[420px]:mx-auto">
     <p
-      class="w-full max-w-[46ch] min-[500px]:mx-auto text-lg sm:!leading-[1.54] min-[500px]:text-xl min-[500px]:text-center lg:text-2xl mb-5"
+      class="w-full max-w-[46ch] mx-auto text-base sm:!leading-[1.54] min-[420px]:text-xl text-center lg:text-2xl mb-6 lg:mb-5"
     >
-      Hii! I'm <span class="">Tefa</span>, a passionate Front-end developer with
-      3+ years of experience building full-stack web applications across modern
-      JavaScript frameworks and backend technologies to deliver efficient,
-      user-focused products.
+      Hii! I'm <span class="">{person.shortName}</span>, a passionate Front-end
+      developer with 3+ years of experience building full-stack web applications
+      across modern JavaScript frameworks and backend technologies to deliver
+      efficient, user-focused products.
     </p>
 
-    <div class="flex gap-x-6 items-center min-[500px]:justify-center">
+    <div class="flex gap-x-6 items-center justify-center">
       {
         [
           { Icon: Github, href: socialLinks.github.href },
@@ -28,13 +24,13 @@ import { socialLinks } from "../seo";
         ].map((item) => {
           return (
             <a
-              class="size-10 rounded-full border grid place-content-center text-xs hover:border-zinc-700 dark:hover:border-zinc-400 transition-colors"
+              class="size-10 rounded-full border.. border-current grid place-content-center text-xs hover:border-zinc-700 text-muted-foreground dark:hover:border-zinc-400 transition-colors"
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
               title={item.href.replace("https://", "").split(".")[0]}
             >
-              <item.Icon class="size-5 stroke-zinc-700 dark:stroke-zinc-400" />
+              <item.Icon class="size-4 sm:size-5 stroke-zinc-700 dark:stroke-zinc-400" />
             </a>
           );
         })
@@ -43,7 +39,7 @@ import { socialLinks } from "../seo";
 
     <a
       href="https://linkedin.com/in/everurstruly"
-      class="flex items-center px-0 gap-x-2 mt-6 text-base min-[500px]:mx-auto w-fit text-blue-600 mastermind_jumpscare"
+      class="flex items-center justify-center px-0 gap-x-2 mt-8 lg:mt-8 text-base mx-auto w-fit text-blue-600 mastermind_jumpscare"
     >
       Read more about me
       <ExternalLink class="size-4" />

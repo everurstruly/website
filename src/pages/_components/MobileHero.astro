@@ -1,18 +1,23 @@
 ---
+import { person } from "../index.astro";
 import MainContainer from "./MainContainer.astro";
 ---
 
-<section class="pt-16 lg:hidden">
+<section class="pt-10 pb-10 lg:hidden">
   <MainContainer>
-    <div class="max-w-fit mx-auto flex flex-col">
-      <p class="w-fit ps-1 text-xs text-zinc-600 font-mono uppercase mb-1.5">
-        Software Engineer
+    <div class="max-w-fit mx-auto flex flex-col items-center text-center">
+      <p class="w-fit text-xs font-extrabold uppercase mt-1.5">My name is</p>
+      <h1 class="uppercase text-4xl font-bold leading-[1.1]">
+        {person.firstName}
+        <br />{person.lastName}
+      </h1>
+      <p class="w-fit ..ps-1 text-sm text-muted-foreground font-mono mt-1 uppercase">
+        {person.title}
       </p>
-      <h1 class="uppercase text-4xl font-semibold">Oghenetefa Okotete</h1>
 
       <!-- NB: 42ch equivalent to the h1 content length -->
       <div
-        class="order-first p-1 rounded-xl h-12 w-[13ch] mb-3 min-[480px]:order-last min-[480px]:w-[42ch] min-[480px]:mx-auto min-[480px]:h-20 min-[480px]:mt-1 overflow-hidden" 
+        class="order-first p-1 rounded-xl h-12 w-[13ch] mb-3 min-[480px]:order-last min-[480px]:w-[42ch] min-[480px]:mx-auto min-[480px]:h-20 min-[480px]:mt-1 overflow-hidden"
       >
         <div
           id="headshot-wrap"
@@ -86,10 +91,7 @@ import MainContainer from "./MainContainer.astro";
     pulse: false,
   };
 
-  const glitchOptionsLongedByMs = (
-    delay: number,
-    options: PowerGlitchOptions
-  ) => {
+  const glitchOptionsLongedByMs = (delay: number, options: PowerGlitchOptions) => {
     const defaultGlitch = PowerGlitch.getDefaultOptions();
     const glitch = {
       ...options,
@@ -114,13 +116,7 @@ import MainContainer from "./MainContainer.astro";
       typeof glitchOptions.timing.duration === "number" &&
       typeof glitchOptions.timing.iterations === "number";
 
-    if (
-      !ghost ||
-      !expected ||
-      !wrap ||
-      triggers.length === 0 ||
-      !isValidTiming
-    ) {
+    if (!ghost || !expected || !wrap || triggers.length === 0 || !isValidTiming) {
       return;
     }
 
@@ -133,7 +129,7 @@ import MainContainer from "./MainContainer.astro";
         PowerGlitch.glitch("#ghostHeadshot", glitchOptions);
         PowerGlitch.glitch(
           "#expectedHeadshot",
-          glitchOptionsLongedByMs(expectedRemainInViewDurationMs, glitchOptions)
+          glitchOptionsLongedByMs(expectedRemainInViewDurationMs, glitchOptions),
         );
       } catch (e) {
         console.warn("PowerGlitch failed:", e);
@@ -152,7 +148,7 @@ import MainContainer from "./MainContainer.astro";
         },
 
         totalGlitchAnimationDurationMs +
-          Math.min(bufferMs, expectedRemainInViewDurationMs)
+          Math.min(bufferMs, expectedRemainInViewDurationMs),
       );
 
       // remove ghost node after transition completes to stop glitch artifacts and free memory
@@ -166,7 +162,7 @@ import MainContainer from "./MainContainer.astro";
             /* no-op */
           }
         },
-        { once: true }
+        { once: true },
       );
     };
 

@@ -1,7 +1,7 @@
 ---
 import { Linkedin, Mail, Github } from "lucide-astro";
 import { website, socialLinks } from "@pages/seo";
-import { desktopNavMenuList } from "@pages/index.astro";
+import { desktopNavMenuList, person } from "@pages/index.astro";
 
 type Props = {
   class?: string;
@@ -37,8 +37,13 @@ const props = Astro.props;
 
   <div class="flex flex-col h-full overflow-y-auto !bg-transparent">
     <header class="pt-10 px-8 flex flex-col">
-      <h3 class="text-xl font-medium mb-0">Oghenetefa Okotete</h3>
-      <span class="text-sm flex items-center gap-x-1">Software Engineer</span>
+      <h3 class="text-xl mb-0 font-bold uppercase leading-[1.1]">
+        {person.firstName}
+        {person.lastName}
+      </h3>
+      <span class="text-sm flex items-center gap-x-1 font-mono ps-0.5 mt-0.5"
+        >{person.title}</span
+      >
     </header>
 
     <nav class="px-8 mt-auto flex flex-col gap-1 text-lg pt-20 pb-10 mb-8">
@@ -99,7 +104,8 @@ const props = Astro.props;
 
   /* Option A — quick: gradient + image (works, but background-image swap doesn't smoothly crossfade) */
   .tile-grid {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("/me/headshot-rebel.jpg");
     background-repeat: repeat;
     background-position: center;
@@ -134,8 +140,7 @@ const props = Astro.props;
     /* control sidebar layer transitions explicitly to ensure instant show and fast fade-out */
     --transition-duration: 200ms; /* default fade-out duration */
     --transition-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
-    --sidebar-transition: opacity var(--transition-duration)
-      var(--transition-ease);
+    --sidebar-transition: opacity var(--transition-duration) var(--transition-ease);
   }
 
   /* ensure transitions are always present on the layers so they animate both in and out */
@@ -203,9 +208,7 @@ const props = Astro.props;
   document.addEventListener("DOMContentLoaded", () => {
     const jumpscareCanvasEl = document.getElementById("sidebar-bg");
     const jumpscarePhotoEl = document.getElementById("sidebar-bg-photo");
-    const jumpscareTriggersEl = document.querySelectorAll(
-      ".mastermind_jumpscare"
-    );
+    const jumpscareTriggersEl = document.querySelectorAll(".mastermind_jumpscare");
 
     const isValidTiming =
       jumpscareGlitchOptions.timing &&
@@ -240,10 +243,10 @@ const props = Astro.props;
       // read durations from CSS variables on the container so CSS is the source-of-truth
       const computed = getComputedStyle(jumpscareCanvasEl!);
       const cssGlitch = parseCssTimeMs(
-        computed.getPropertyValue("--glitch-duration")?.trim()
+        computed.getPropertyValue("--glitch-duration")?.trim(),
       );
       const cssFade = parseCssTimeMs(
-        computed.getPropertyValue("--fade-duration")?.trim()
+        computed.getPropertyValue("--fade-duration")?.trim(),
       );
 
       const glitchDuration = cssGlitch ?? options.timing?.duration ?? 2000;
@@ -259,7 +262,7 @@ const props = Astro.props;
 
       const { containers, startGlitch, stopGlitch } = PowerGlitch.glitch(
         jumpscarePhotoEl!,
-        runtimeOptions
+        runtimeOptions,
       );
 
       // FIXME: ensure size adaptive containers
@@ -289,10 +292,7 @@ const props = Astro.props;
       }
 
       // ensure the CSS transition duration used by the fade matches our fadeMs
-      jumpscareCanvasEl?.style.setProperty(
-        "--transition-duration",
-        `${fadeMs}ms`
-      );
+      jumpscareCanvasEl?.style.setProperty("--transition-duration", `${fadeMs}ms`);
 
       startGlitch();
       jumpscareCanvasEl?.classList.add("reveal");

@@ -11,17 +11,24 @@ import Main from "@pages/_components/Main.astro";
 import MobileNavbar from "./_components/MobileNavbar.astro";
 import MobileHero from "./_components/MobileHero.astro";
 
+export const person = {
+  firstName: "Oghenetefa",
+  lastName: "Okotete",
+  shortName: "Tefa",
+  title: "PM & Part-Time SWE",
+};
+
 export const navMenuList = [
   { title: "About", href: "/#summary" },
-  { title: "Experiences", href: "/#experiences" },
-  { title: "Portfolio", href: "/#highlights" },
+  { title: "Showcase", href: "/#highlights" },
+  { title: "CV", href: "/#experiences" },
   { title: "Hire", href: "/#collaborate" },
 ];
 
 export const desktopNavMenuList = [
   { title: "About moi", href: "/#summary" },
-  { title: "Portfolio", href: "/#highlights" },
-  { title: "Experiences", href: "/#experiences" },
+  { title: "Showcase", href: "/#highlights" },
+  { title: "Experience", href: "/#experiences" },
   { title: "Work with me", href: "/#collaborate" },
   // { title: "Blog", href: "/blog" },
 ];
@@ -37,8 +44,8 @@ export const desktopNavMenuList = [
     />
 
     <Main>
-      <MobileNavbar />
       <MobileHero />
+      <MobileNavbar />
       <MainContainer class="animate">
         <Summary />
         <Highlights />
