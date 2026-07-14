@@ -1,0 +1,3 @@
+why cant I render the image and change its fit withing the parent height? the image overflows for some reason and the object fit is not effective
+
+the onload fade in animatino makes my website feel slow on load but I like the effect. is there anyway to speed it up and make it near instant? 
