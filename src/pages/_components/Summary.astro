@@ -7,12 +7,12 @@ import { person } from "../index.astro";
 <section id="summary" class="pt-14 lg:pt-14 pb-8">
   <div class="max-w-fit min-[420px]:max-w-none min-[420px]:mx-auto">
     <p
-      class="w-full max-w-[46ch] mx-auto text-base sm:!leading-[1.54] min-[420px]:text-xl min-[420px]:text-center lg:text-2xl mb-5"
+      class="w-full max-w-[48ch] mx-auto text-lg sm:!leading-[1.54] min-[420px]:text-xl min-[420px]:text-center lg:text-2xl mb-5"
     >
-      Hii! I'm <span class="">{person.shortName}</span>, a passionate Front-end
-      developer with 3+ years of experience building full-stack web applications
-      across modern JavaScript frameworks and backend technologies to deliver
-      efficient, user-focused products.
+      Hi! I'm <span class="">{person.shortName}</span>. I help improve the way
+      businesses operate through technology, thoughtful design, and continuous
+      improvement. Today, that means building web applications. Tomorrow, it may mean
+      leading products, facilities, or business operations.
     </p>
 
     <div class="flex gap-x-4 sm:gap-x-6 items-center min-[420px]:justify-center">
@@ -29,6 +29,7 @@ import { person } from "../index.astro";
               target="_blank"
               rel="noopener noreferrer"
               title={item.href.replace("https://", "").split(".")[0]}
+              aria-label={`Connect with me via: ${item.href}`}
             >
               <item.Icon class="size-5 stroke-zinc-700 dark:stroke-zinc-400" />
             </a>

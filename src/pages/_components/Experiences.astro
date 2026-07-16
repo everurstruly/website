@@ -1,5 +1,5 @@
 ---
-import { BriefcaseBusiness, Building2, Frame, Download } from "lucide-astro";
+import { BriefcaseBusiness, Building2, Frame } from "lucide-astro";
 
 const experiences = [
   {
@@ -51,15 +51,15 @@ const experiences = [
       Work Experiences
     </h2>
 
-    <a
+    <!-- <a
       href="https://github.com/everurstruly?tab=repositories"
       class="px-0 flex items-center gap-x-1.5 text-sm mt-4 hover:underline underline-offset-2 mastermind_jumpscare text-blue-600 leading-none"
       target="_blank"
       rel="noopener noreferrer"
     >
-      {`Download My Full Resume (CV)`}
+      {`Get my Resume (CV)`}
       <Download class="size-4 stroke-current" />
-    </a>
+    </a> -->
   </header>
 
   <div class="flex flex-col *:py-10 lg:ms-2">
@@ -93,7 +93,9 @@ const experiences = [
               {typeof work.contribution === "string" && (
                 <p class="text-sm lg:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
                   {work.contribution}{" "}
-                  <span class="text-zinc-800">Technologies used:</span>{" "}
+                  <span class="text-zinc-800 dark:text-zinc-500">
+                    Technologies used:
+                  </span>{" "}
                   {work.tech.map((item, index, arr) => {
                     const prefix = index === 0 ? "" : ", ";
                     const sufix = index === arr.length - 1 ? " and more." : "";

@@ -8,14 +8,14 @@ import { website } from "../seo";
   <header
     class="mb-16 flex flex-wrap items-center gap-x-4 gap-y-4 justify-between lg:flex-col lg:items-start"
   >
-    <h2 class="text-4xl text-balance">
+    <h2 class="text-4xl text-balance..">
       Work, friendships, or something in between.
     </h2>
 
-    <div class="flex items-center gap-x-4 flex-wrap gap-y-2">
+    <div class="flex items-center gap-x-6 flex-wrap gap-y-2">
       <a
         href={`mailto:${website.email}`}
-        class="px-0 flex gap-x-1 mt-4 text-sm hover:underline underline-offset-2 text-nowrap text-muted-foreground font-medium"
+        class="px-0 flex gap-x-1 mt-4 text-sm lg:text-base hover:underline underline-offset-2 text-nowrap text-muted-foreground font-medium"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -79,26 +79,7 @@ import { website } from "../seo";
     <div class="ac">
       <h4 class="ac-header">
         <button type="button" class="ac-trigger">
-          What I don't do?
-          <ChevronDown
-            class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
-          />
-        </button>
-      </h4>
-      <div class="ac-panel" role="region">
-        <p>
-          I focus on web and mobile applications. I don't offer branding, graphic
-          design, SEO, marketing, native mobile apps, desktop software, DevOps, or
-          custom backend systems. If a project needs those, I'm happy to collaborate
-          with specialists.
-        </p>
-      </div>
-    </div>
-
-    <div class="ac">
-      <h4 class="ac-header">
-        <button type="button" class="ac-trigger">
-          How much will it cost me?
+          How much will it cost you?
           <ChevronDown
             class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
           />
@@ -117,6 +98,25 @@ import { website } from "../seo";
     <div class="ac">
       <h4 class="ac-header">
         <button type="button" class="ac-trigger">
+          What's outside my scope?
+          <ChevronDown
+            class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
+          />
+        </button>
+      </h4>
+      <div class="ac-panel" role="region">
+        <p>
+          If your project is primarily about branding, marketing, SEO, graphic
+          design, native mobile apps, desktop software, DevOps, or complex backend
+          engineering, I'm probably not the right person. I'd rather point you to
+          someone who is.
+        </p>
+      </div>
+    </div>
+
+    <div class="ac">
+      <h4 class="ac-header">
+        <button type="button" class="ac-trigger">
           Can we just hang out?
           <ChevronDown
             class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
@@ -125,10 +125,12 @@ import { website } from "../seo";
       </h4>
       <div class="ac-panel" role="region">
         <p>
-          Absolutely. Not every conversation has to lead to a project. I'm always up
-          for meeting interesting people. Fair warning though—I skip the small talk.
-          I'd rather play football, watch a match or a film, explore somewhere new,
-          or just work on something together.
+          Absolutely. Not every conversation has to lead to a project. Fair warning
+          though; I tend to skip the small talk and connect better by doing something
+          together. It could be coffee, football, food, a film, or collaborating on
+          an idea. <a href="#summary" class="text-blue-600 hover:underline"
+            >Reach out</a
+          >
         </p>
       </div>
     </div>

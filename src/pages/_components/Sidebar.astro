@@ -39,11 +39,16 @@ const props = Astro.props;
     <header class="pt-16 px-8 flex flex-col">
       <h3 class="text-xl mb-0 font-bold uppercase leading-[1.1]">
         {person.firstName}
+        <br />
         {person.lastName}
       </h3>
-      <span class="text-sm flex items-center gap-x-1 font-mono ps-0.5 mt-0.5"
-        >{person.title}</span
-      >
+      {
+        person?.title && (
+          <span class="text-sm flex items-center gap-x-1 font-mono mt-0.5">
+            {person.title}
+          </span>
+        )
+      }
     </header>
 
     <nav class="px-8 mt-auto flex flex-col gap-1 text-lg pt-20 pb-10 mb-8">
@@ -61,6 +66,7 @@ const props = Astro.props;
         class="px-1.5 py-3 hover:underline group"
         href={`mailto:${website.email}`}
         title="Email"
+        arial-label="Connect via Email"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -72,6 +78,7 @@ const props = Astro.props;
         target="_blank"
         rel="noopener noreferrer"
         title="LinkedIn"
+        arial-label="Connect via LinkedIn"
       >
         <Linkedin class="size-5 stroke-zinc-600 group-hover:stroke-blue-600" />
       </a>
@@ -81,6 +88,7 @@ const props = Astro.props;
         target="_blank"
         rel="noopener noreferrer"
         title="GitHub"
+        arial-label="Connect via GitHub"
       >
         <Github class="size-5 stroke-zinc-600 group-hover:stroke-blue-600" />
       </a>
