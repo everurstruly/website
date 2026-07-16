@@ -1,7 +1,7 @@
 ---
 import RootLayout from "@pages/_RootLayout.astro";
 import Summary from "@pages/_components/Summary.astro";
-import Highlights from "@pages/_components/Highlights.astro";
+import Showcase from "@pages/_components/Showcase.astro";
 import Collaborate from "@pages/_components/Collaborate.astro";
 import Footnote from "@pages/_components/Footnote.astro";
 import Experiences from "@pages/_components/Experiences.astro";
@@ -20,14 +20,14 @@ export const person = {
 
 export const navMenuList = [
   { title: "About", href: "/#summary" },
-  { title: "Showcase", href: "/#highlights" },
+  { title: "Showcase", href: "/#showcase" },
   { title: "CV", href: "/#experiences" },
   { title: "Hire", href: "/#collaborate" },
 ];
 
 export const desktopNavMenuList = [
   { title: "About moi", href: "/#summary" },
-  { title: "Showcase", href: "/#highlights" },
+  { title: "Showcase", href: "/#showcase" },
   { title: "Experience", href: "/#experiences" },
   { title: "Work with me", href: "/#collaborate" },
   // { title: "Blog", href: "/blog" },
@@ -48,7 +48,7 @@ export const desktopNavMenuList = [
       <MobileNavbar />
       <MainContainer class="animate">
         <Summary />
-        <Highlights />
+        <Showcase />
         <Experiences />
         <Collaborate />
         <Footnote />

@@ -6,7 +6,7 @@ import { navMenuList } from "@pages/index.astro";
   class="lg:hidden w-full sticky top-0 bg-white/90 dark:bg-background/80 dark:text-zinc-100 backdrop-blur-sm h-16 z-50 px-4"
 >
   <div
-    class="flex items-center max-w-sm mx-auto justify-between gap-x-1 min-[420px]:gap-x-4 h-full"
+    class="flex items-center max-w-xs mx-auto justify-between gap-x-1 min-[420px]:gap-x-4 h-full"
   >
     {
       navMenuList.map((item, index, arr) => {
@@ -14,11 +14,9 @@ import { navMenuList } from "@pages/index.astro";
           <>
             <a
               href={item.href}
-              class="inline-flex items-center gap-x-1 px-1 underline-offset-2"
+              class="inline-flex items-center px-1 underline-offset-2 lowercase"
             >
-              <span class="text-xs min-[420px]:text-sm font-medium">
-                {item.title}
-              </span>
+              <span class=":text-sm font-semibold">{item.title}</span>
             </a>
             {index < arr.length - 1 && <span class="text-xs font-sans">||</span>}
           </>

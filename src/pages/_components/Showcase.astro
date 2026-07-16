@@ -1,9 +1,9 @@
 ---
 import { ExternalLink } from "lucide-astro";
 
-const highlights = [
+const showcase = [
   {
-    cover: "/highlights/project-cinema.jpg",
+    cover: "/showcase/project-cinema.jpg",
     id: "theme-editor",
     date: "2025",
     title: "Theme Editor",
@@ -15,7 +15,7 @@ const highlights = [
     detailsUrl: "https://github.com/everurstruly/mui-theme-builder",
   },
   {
-    cover: "/highlights/project-champions.png",
+    cover: "/showcase/project-champions.png",
     id: "tournament",
     date: "2026",
     title: "Events Wiki & Collaborative Workspace",
@@ -26,7 +26,7 @@ const highlights = [
     // detailsUrl: "https://github.com/everurstruly/tournament-management-system",
   },
   {
-    cover: "/highlights/project-edutech.jpg",
+    cover: "/showcase/project-edutech.jpg",
     id: "cleanup-extension",
     date: "2026",
     title: "AI Conversation Clarity",
@@ -38,7 +38,7 @@ const highlights = [
     detailsUrl: "https://github.com/everurstruly/chat-clarity",
   },
   {
-    cover: "/highlights/project-camera.jpg",
+    cover: "/showcase/project-camera.jpg",
     id: "social-network",
     date: "2026",
     title: "Festival Discovery & Social Network",
@@ -52,7 +52,7 @@ const highlights = [
 const tints = ["blue", "green", "red", "yellow", "beige"];
 ---
 
-<section id="highlights" class="py-20">
+<section id="showcase" class="py-20">
   <header
     class="mb-8 lg:mb-10 flex flex-wrap items-center gap-y-2 gap-x-4 justify-between"
   >
@@ -73,11 +73,11 @@ const tints = ["blue", "green", "red", "yellow", "beige"];
 
   <div class="flex flex-wrap gap-y-20 gap-x-8 lg:gap-x-12 lg:gap-y-20">
     {
-      highlights.map((project, idx) => {
+      showcase.map((project, index) => {
         return (
           <article class="w-full lg:w-1/3 grow">
             <div class="h-64 w-full overflow-hidden">
-              <div class="tinted-image size-full bg-zinc-100">
+              <div class="tinted-image-wraper size-full bg-neutral-200">
                 <img
                   src={
                     project.cover ? project.cover : `/me/headshot-professional.jpg`
@@ -89,7 +89,7 @@ const tints = ["blue", "green", "red", "yellow", "beige"];
                 <div
                   class="tint-overlay"
                   aria-hidden="true"
-                  style={`--tint: ${tints[idx % tints.length]}`}
+                  style={`--tint: ${tints[index % tints.length]}`}
                 />
               </div>
             </div>
@@ -152,12 +152,12 @@ const tints = ["blue", "green", "red", "yellow", "beige"];
 </section>
 
 <style>
-  .tinted-image {
+  .tinted-image-wraper {
     position: relative;
     transition: transform 3000ms ease;
   }
 
-  .tinted-image .tint-overlay {
+  .tinted-image-wraper .tint-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -172,7 +172,7 @@ const tints = ["blue", "green", "red", "yellow", "beige"];
     opacity: 0.75;
   }
 
-  article:hover .tinted-image {
+  article:hover .tinted-image-wraper {
     transform: scale(1.2);
   }
 </style>
